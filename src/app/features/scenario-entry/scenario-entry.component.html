@@ -1,11 +1,45 @@
+<br/><br/>
 <div class="row" >
   <div class="col-md-1"></div>
   <div class="col-md-10">
     <md-tab-group>
         <md-tab label="{{'SCENARIO' | translate: lang}}">
-            <p>
-                Scenario Tab
-            </p>
+          <br/><br/>
+            <md-input-container>
+                <input mdInput #idFld placeholder="{{'ID' | translate: lang}}" style="width:200px" value="{{masterScenario.id}}" disabled="false">
+            </md-input-container><br/>
+            <md-input-container>
+                <input mdInput #nameFld placeholder="{{'NAME' | translate: lang}}" style="width:400px" value="{{masterScenario.name}}" disabled="false">
+            </md-input-container><br/>
+            <!-- <md-input-container>
+                <input mdInput #producerFld placeholder="{{'PRODUCER' | translate: lang}}" style="width:100px" value="{{masterScenario.id}}" disabled="false">
+            </md-input-container> -->
+            <md-input-container>
+                <input mdInput #producerFld placeholder="{{'PRODUCER' | translate: lang}}" style="width:300px" value="{{producerName}}" disabled="false">
+            </md-input-container>
+            <button md-mini-fab class="lookupBtn" (click)="openLookup('producer')" title="{{'VIEW_PRODUCERS' | translate: lang}}">
+              <span class="glyphicon glyphicon-zoom-in" id="look1"  aria-hidden="true"  ></span>
+            </button>
+            <br/>
+            <md-input-container>
+                <input mdInput #designerFld placeholder="{{'DESIGNER' | translate: lang}}" style="width:200px" value="{{masterScenario.designer}}" disabled="false">
+            </md-input-container><br/>
+            <!-- <md-input-container>
+                <input mdInput #setFld placeholder="{{'SET' | translate: lang}}" style="width:100px" value="{{masterScenario.set}}" disabled="false">
+            </md-input-container> -->
+            <md-input-container>
+                  <input mdInput #setFldName placeholder="{{'SET_NAME' | translate: lang}}" style="width:300px" value="{{setName}}" disabled="false">
+            </md-input-container>
+            <button md-mini-fab class="lookupBtn" (click)="openLookup('set')" title="{{'VIEW_SETS' | translate: lang}}">
+                <span class="glyphicon glyphicon-zoom-in" id="look1"  aria-hidden="true"  ></span>
+            </button>
+            <br/>
+            <md-input-container>
+                <input mdInput #yearProducedFld placeholder="{{'YEAR_PRODUCED' | translate: lang}}" style="width:150px" value="{{masterScenario.yearDesigned}}" disabled="false">
+            </md-input-container><br/>
+            <md-input-container>
+                <input mdInput #yearSetFld placeholder="{{'YEAR_SET' | translate: lang}}" style="width:150px" value="{{masterScenario.yearSet}}" disabled="false">
+            </md-input-container><br/>
         </md-tab>
         <md-tab label="{{'MAPS' | translate: lang}}">
             <p>

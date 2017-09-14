@@ -4,6 +4,7 @@
         "name": "Beyond Valor",
         "producer": "MMP",
         "version": 3,
+        "boxart": "/assets/images/set/bvba.jpg",
         "maps": [
             1,2,3,4,5,8,20,21,22,23
         ],
@@ -17,6 +18,7 @@
         "name": "For King and Country",
         "producer": "MMP",
         "version": 1,
+        "boxart": "/assets/images/set/fkacba.jpg",
         "maps": [
             6,7,10,12,13,14,15,32
         ],

@@ -8,5 +8,7 @@
     "ITALIAN": "Italian",
     "GERMAN": "German",
     "ENGLISH": "English",
-    "SCENARIO_ENTRY": "Scenario Entry"
+    "SCENARIO_ENTRY": "Scenario Entry",
+    "SAVE": "Save",
+    "DELETE": "Delete"
 }

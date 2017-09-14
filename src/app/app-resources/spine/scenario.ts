@@ -7,27 +7,27 @@ export enum SCENARIO_TYPE{
 
 
 export class Scenario {
-    private id: number;
-    private name: string;
-    private producer: string;
-    private designer: string;
-    private set: string;
-    private yearDesigned: number;
-    private yearSet: number;
-    private nationality: string[];
-    private units: string[];
-    private maps: string[];
-    private oba: boolean = false;
-    private sea: boolean = false;
-    private night: boolean = false;
-    private campaign: boolean = false;
-    private artillery: boolean = false;
-    private vehicles: boolean = false;
-    private scenarioType: SCENARIO_TYPE = SCENARIO_TYPE.UNKNOWN;
+    public id: number;
+    public name: string;
+    public producer: string;
+    public designer: string;
+    public set: string;
+    public yearDesigned: number;
+    public yearSet: number;
+    public nationality: string[];
+    public units: string[];
+    public maps: string[];
+    public oba: boolean = false;
+    public sea: boolean = false;
+    public night: boolean = false;
+    public campaign: boolean = false;
+    public artillery: boolean = false;
+    public vehicles: boolean = false;
+    public scenarioType: SCENARIO_TYPE = SCENARIO_TYPE.UNKNOWN;
 
-    private played: Date[];
-    private playedNotes: string[];
-    private rating: number;
-    private playAgain: boolean = true;
+    public played: Date[];
+    public playedNotes: string[];
+    public rating: number;
+    public playAgain: boolean = true;
 
 }

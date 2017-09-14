@@ -1,0 +1,15 @@
+<div *ngIf="showSearch">
+    <md-input-container>
+        <input mdInput #filter placeholder="{{'FILTER' | translate: lang}}" style="width:200px"  disabled="false">
+    </md-input-container><br/><br/>
+    <md-list>
+        <md-list-item *ngFor="let set of allSets">
+          <img mdListAvatar src="{{set.boxart}}" alt="..." style="height:30px">
+          <button md-button (click)="selectLine(set)" style="width:400px">
+            <span>{{set.name}}</span>
+            <span class="demo-2"> {{set.producer}} </span>
+          </button>
+        </md-list-item>
+      </md-list>
+</div>
+<div *ngIf="showDetails"></div>

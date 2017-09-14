@@ -32,11 +32,19 @@
                                     </ul>
                             </li>
                         </ul>
+                        
+                        
                         <ul class="nav navbar-nav navbar-right">
                             <li (click)="openHelpAbout()"><a data-toggle="tooltip" id="overrideback" data-placement="left" title="{{ 'HELP_ABOUT' | translate: lang }}" ><span class="glyphicon glyphicon-book" style="color:#4da6ff" aria-hidden="false"></span></a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li (click)="openSettingsWindow()"><a data-toggle="tooltip" id="overrideback" data-placement="left" title="{{ 'SETTINGS' | translate: lang }}" ><span class="glyphicon glyphicon-cog" style="color:#4da6ff" aria-hidden="false"></span></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li (click)="deleteRecord()"><a data-toggle="tooltip" id="overrideback" data-placement="left" title="{{ 'DELETE' | translate: lang }}" ><span class="glyphicon glyphicon-trash" style="color:#4da6ff" aria-hidden="false"></span></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li (click)="saveRecord()"><a data-toggle="tooltip" id="overrideback" data-placement="left" title="{{ 'SAVE' | translate: lang }}" ><span class="glyphicon glyphicon-floppy-disk" style="color:#4da6ff" aria-hidden="false"></span></a></li>
                         </ul>
     
     
@@ -54,8 +62,9 @@
     </div>
     
     
-    <!-- <modal></modal> -->
-    
+    <modal (modalOutput)="modalOutput($event)">
+    </modal>
+      
     
     
     

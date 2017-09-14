@@ -8,5 +8,9 @@
     "ITALIAN": "de#Italian",
     "GERMAN": "de#German",
     "ENGLISH": "de#English",
-    "SCENARIO_ENTRY": "de#Scenario Entry"
+    "SCENARIO_ENTRY": "de#Scenario Entry",
+    "VIEW_PRODUCERS": "de#View Producers",
+    "VIEW_SETS": "de#View Sets",
+    "SAVE": "de#Save",
+    "DELETE": "de#Delete"
 }
