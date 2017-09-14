@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { ScenarioEntryComponent } from './features/scenario-entry/scenario-entry.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ScenarioEntryComponent
   ],
   imports: [
     BrowserModule,
