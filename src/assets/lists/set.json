@@ -1,0 +1,29 @@
+[
+    {
+        "id": "BV",
+        "name": "Beyond Valor",
+        "producer": "MMP",
+        "version": 3,
+        "maps": [
+            1,2,3,4,5,8,20,21,22,23
+        ],
+        "scenarios": [
+            "ASL1","ASL2","ASL3","ASL4","ASL5","ASL6","ASL7","ASL8","ASL9","ASL10",
+            "ASL123","ASL124","ASL125","ASL126"
+        ]
+    },
+    {
+        "id": "FKaC",
+        "name": "For King and Country",
+        "producer": "MMP",
+        "version": 1,
+        "maps": [
+            6,7,10,12,13,14,15,32
+        ],
+        "scenarios": [
+            "ASL91","ASL92","ASL93","ASL94","ASL95","ASL96","ASL97","ASL98",
+            "ASL99","ASL100","ASL101","ASL102","ASL103","ASL104","ASL105","ASL106",
+            "ASL107","ASL108","ASL109","ASL110"
+        ]
+    }
+]

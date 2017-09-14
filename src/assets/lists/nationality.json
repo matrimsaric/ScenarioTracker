@@ -1,0 +1,87 @@
+[
+    {
+        "id": "GB",
+        "name": "British",
+        "counterSet": "British"
+    },
+    {
+        "id": "USA",
+        "name": "United States",
+        "counterSet": "United States"
+    },
+    {
+        "id": "FR",
+        "name": "French",
+        "counterSet": "French"
+    },
+    {
+        "id": "RU",
+        "name": "Russian",
+        "counterSet": "Russian"
+    },
+    {
+        "id": "JA",
+        "name": "Japanese",
+        "counterSet": "Japanese"
+    },
+    {
+        "id": "GE",
+        "name": "German",
+        "counterSet": "German"
+    },
+    {
+        "id": "IT",
+        "name": "Italian",
+        "counterSet": "Italian"
+    },
+    {
+        "id": "CH",
+        "name": "Chinese",
+        "counterSet": "Chinese"
+    },
+    {
+        "id": "FIN",
+        "name": "Finnish",
+        "counterSet": "Finnish"
+    },
+    {
+        "id": "RUM",
+        "name": "Rumanian",
+        "counterSet": "Axis Allies"
+    },
+    {
+        "id": "DUT",
+        "name": "Dutch",
+        "counterSet": "Allied Minors"
+    },
+    {
+        "id": "AUS",
+        "name": "Australian",
+        "counterSet": "British"
+    },
+    {
+        "id": "CAN",
+        "name": "Canadian",
+        "counterSet": "British"
+    },
+    {
+        "id": "NZ",
+        "name": "New Zealand",
+        "counterSet": "British"
+    },
+    {
+        "id": "CM",
+        "name": "Commonwealth",
+        "counterSet": "British"
+    },
+    {
+        "id": "BUL",
+        "name": "Bulgarian",
+        "counterSet": "Axis Allies"
+    },
+    {
+        "id": "CRO",
+        "name": "Croatian",
+        "counterSet": "Axis Allies"
+    }
+]
