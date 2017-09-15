@@ -52,9 +52,68 @@
             </p>
         </md-tab>
         <md-tab label="{{'ADDITIONAL' | translate: lang}}">
-            <p>
-                Additional Data Tab
-            </p>
+            <br/><br/>
+            <md-radio-group class="example-radio-group"  [(ngModel)]="scenarioSize">
+                    <md-radio-button class="example-radio-button">{{'SMALL_SCENARIO' | translate: lang}}</md-radio-button>
+                    <md-radio-button class="example-radio-button">{{'MEDIUM_SCENARIO' | translate: lang}}</md-radio-button>
+                    <md-radio-button class="example-radio-button">{{'LARGE_SCENARIO' | translate: lang}}</md-radio-button>
+                </md-radio-group><br/>
+            <md-radio-group class="example-radio-group"  [(ngModel)]="theatreOfOperations">
+                    <md-radio-button class="example-radio-button">{{'PTO' | translate: lang}}</md-radio-button>
+                    <md-radio-button class="example-radio-button">{{'WTO' | translate: lang}}</md-radio-button>
+                    <md-radio-button class="example-radio-button">{{'ETO' | translate: lang}}</md-radio-button>
+                    <md-radio-button class="example-radio-button">{{'DESERT' | translate: lang}}</md-radio-button>
+                    <md-radio-button class="example-radio-button">{{'FINN' | translate: lang}}</md-radio-button>
+                    <md-radio-button class="example-radio-button">{{'OTHER' | translate: lang}}</md-radio-button>
+                </md-radio-group><br/>
+
+            <md-checkbox
+                class="example-margin"
+                [(ngModel)]="this.masterScenario.oba">
+                {{'OBA_SCENARIO' | translate: lang}}
+            </md-checkbox><br/>
+            <md-checkbox
+                class="example-margin"
+                [(ngModel)]="this.masterScenario.night">
+                {{'NIGHT_SCENARIO' | translate: lang}}
+            </md-checkbox><br/>
+            <md-checkbox
+                class="example-margin"
+                [(ngModel)]="this.masterScenario.sea">
+                {{'SEA_SCENARIO' | translate: lang}}
+            </md-checkbox><br/>
+            <md-checkbox
+                class="example-margin"
+                [(ngModel)]="this.masterScenario.cave">
+                {{'CAVE_SCENARIO' | translate: lang}}
+            </md-checkbox><br/>
+            <md-checkbox
+                class="example-margin"
+                [(ngModel)]="this.masterScenario.vehicles">
+                {{'VEHICLES_SCENARIO' | translate: lang}}
+            </md-checkbox><br/>
+            <md-checkbox
+                class="example-margin"
+                [(ngModel)]="this.masterScenario.artillery">
+                {{'ARTILLERY_SCENARIO' | translate: lang}}
+            </md-checkbox><br/>
+            
+            <md-checkbox
+                class="example-margin"
+                [(ngModel)]="this.masterScenario.air">
+                {{'AIR_SCENARIO' | translate: lang}}
+            </md-checkbox><br/>
+            <md-checkbox
+                class="example-margin"
+                [(ngModel)]="this.masterScenario.bocage">
+                {{'BOCAGE_SCENARIO' | translate: lang}}
+            </md-checkbox><br/>
+            <md-checkbox
+                class="example-margin"
+                [(ngModel)]="this.masterScenario.block">
+                {{'BLOCKED' | translate: lang}}
+            </md-checkbox><br/>
+            
         </md-tab>
         <md-tab label="{{'PERSONAL' | translate: lang}}">
             <p>

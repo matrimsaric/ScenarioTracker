@@ -6,6 +6,9 @@ import { Scenario, SCENARIO_TYPE } from '../../app-resources/spine/scenario';
 import { MessageInformation, MESSAGE_TYPE, MessagingService, MESSAGE_REQUESTOR } from '../../app-resources/app-services/messaging.service';
 import { Subscription } from 'rxjs/rx';
 
+// language
+import { Language, TranslationService } from 'angular-l10n';
+
 @Component({
   selector: 'app-scenario-entry',
   templateUrl: './scenario-entry.component.html',
@@ -13,23 +16,35 @@ import { Subscription } from 'rxjs/rx';
 })
 export class ScenarioEntryComponent implements OnInit, OnDestroy {
 
+  @Language() lang: string;
   private masterScenario: Scenario;
   private broadcastSubscription: Subscription;
   private currentLookup: MESSAGE_TYPE = MESSAGE_TYPE.UNKNOWN;
   private setName: string = "";
   private producerName: string = "";
 
-  constructor(private _messenger: MessagingService) { }
+  // additional params
+  private scenarioSize: string = "";
+  private theatreOfOperations: string = "";
+  
+
+  constructor(  private _messenger: MessagingService,
+                private _translator: TranslationService) { 
+
+ }
 
   ngOnInit() {
       this.masterScenario = new Scenario();
       this.broadcastSubscription = this._messenger.broadcastMessage.subscribe(message => this.onMessageReceived(message));
+      
+
     }
 
   ngOnDestroy(): void{
 
   }
 
+  
   private onMessageReceived(message: MessageInformation): void{
 
     switch(message.messageType){

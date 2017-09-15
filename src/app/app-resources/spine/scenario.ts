@@ -24,6 +24,9 @@ export class Scenario {
     public artillery: boolean = false;
     public vehicles: boolean = false;
     public scenarioType: SCENARIO_TYPE = SCENARIO_TYPE.UNKNOWN;
+    public block: boolean = false;
+    public cave: boolean = false;
+    public bocage: boolean = false;
 
     public played: Date[];
     public playedNotes: string[];
