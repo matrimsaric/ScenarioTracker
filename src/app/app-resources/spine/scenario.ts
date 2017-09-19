@@ -1,3 +1,5 @@
+import { Map } from './map';
+
 export enum SCENARIO_TYPE{
     UNKNOWN = 0,
     EXIT_POINTS = 1,
@@ -16,7 +18,7 @@ export class Scenario {
     public yearSet: number;
     public nationality: string[];
     public units: string[];
-    public maps: string[];
+    public maps: Map[] = [];
     public oba: boolean = false;
     public sea: boolean = false;
     public night: boolean = false;

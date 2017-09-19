@@ -42,9 +42,25 @@
             </md-input-container><br/>
         </md-tab>
         <md-tab label="{{'MAPS' | translate: lang}}">
-            <p>
-                Maps
-            </p>
+            <br/><br/>
+            <md-input-container>
+                <input mdInput #mapFld placeholder="{{'MAP_ID' | translate: lang}}" style="width:150px"  disabled="false">
+            </md-input-container>
+            <button md-mini-fab class="lookupBtn" (click)="addMap(mapFld.value)" title="{{'ADD' | translate: lang}}">
+                <span class="glyphicon glyphicon-plus" id="look1"  aria-hidden="true"  ></span>
+              </button>
+
+            <br/><br/>
+            <md-list style="min-height: 200px">
+                <md-list-item *ngFor="let map of masterScenario.maps">{{ map.id }} - {{map.set}} 
+                    <button md-icon-button style="color:lightblue" id="look2" (click)="removeMap(map)">
+                        <span class="glyphicon glyphicon-minus"   aria-hidden="true"  ></span>
+                     </button>
+                     <button md-icon-button class="lookupBtn" id="look2" style="color:lightblue"(click)="showInfo(map)">
+                        <span class="glyphicon glyphicon-question-sign" id="look1"  aria-hidden="true"  ></span>
+                     </button>
+                </md-list-item>
+            </md-list>
         </md-tab>
         <md-tab label="{{'ORBAT' | translate: lang}}">
             <p>

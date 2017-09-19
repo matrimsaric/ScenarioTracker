@@ -2,9 +2,13 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 
 // class to hold scenario object
 import { Scenario, SCENARIO_TYPE } from '../../app-resources/spine/scenario';
+import { Map } from '../../app-resources/spine/map';
 
 import { MessageInformation, MESSAGE_TYPE, MessagingService, MESSAGE_REQUESTOR } from '../../app-resources/app-services/messaging.service';
 import { Subscription } from 'rxjs/rx';
+
+// services
+import { LoaderService } from '../../app-resources/app-services/loader.service';
 
 // language
 import { Language, TranslationService } from 'angular-l10n';
@@ -26,10 +30,13 @@ export class ScenarioEntryComponent implements OnInit, OnDestroy {
   // additional params
   private scenarioSize: string = "";
   private theatreOfOperations: string = "";
+
+  private errorMessage: string = "";
   
 
   constructor(  private _messenger: MessagingService,
-                private _translator: TranslationService) { 
+                private _translator: TranslationService,
+                private _loader: LoaderService) { 
 
  }
 
@@ -85,6 +92,42 @@ export class ScenarioEntryComponent implements OnInit, OnDestroy {
 
     private getSetName(): void{
 
+    }
+
+    private addMap(newMap: string): void{
+        
+        var existingMap: Map;
+        
+        // need to add a new map. Check for existance in source file
+        this._loader.loadIndividualMap(newMap)
+        .subscribe(returnedMap => this.addNewMap(returnedMap, newMap)),
+        error => this.errorMessage = <any> error;
+
+        
+
+        
+    }
+
+    private addNewMap(returnedMap: Map, mapId: string): void{
+
+        if(returnedMap){
+            this.masterScenario.maps.push(returnedMap);
+        }
+        else{
+            var set: string = this._translator.translate("UNKNOWN");
+            var addedMap: Map = new Map(mapId, set);
+            // otherwise leave as unknown and just add
+            this.masterScenario.maps.push(addedMap);
+        }
+    }
+
+    private removeMap(obsoleteMap: Map): void{
+        // loop to find
+        for(var index: number = 0; index < this.masterScenario.maps.length; index++){
+            if(this.masterScenario.maps[index].id == obsoleteMap.id){
+                this.masterScenario.maps.splice(index,1);
+            }
+        }
     }
 
 }
