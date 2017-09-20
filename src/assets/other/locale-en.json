@@ -37,6 +37,15 @@
     "DESIGNER": "Designer",
     "SET_NAME": "Set Name",
     "YEAR_PRODUCED": "Year Produced",
-    "YEAR_SET": "Year Set"
+    "YEAR_SET": "Year Set",
+    "SEARCH_TAGS": "Scenario Search Tags",
+    "NOTES": "Notes",
+    "NATIONALITY": "Nationality",
+    "ADD_NATIONALITY": "Add Nationality",
+    "VIEW_NATIONALITIES": "View Nationalities",
+    "SELECT_NATIONALITY": "Select Nationality",
+    "MAP_ID": "Map Id",
+    "MAP": "Map",
+    "FILTER": "Filter"
     
 }

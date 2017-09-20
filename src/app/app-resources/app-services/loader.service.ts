@@ -6,12 +6,14 @@ import { Observable } from 'rxjs/Observable';
 // classes to hold return items
 import { Set } from '../spine/set';
 import { Producer } from '../spine/producer';
+import { Nationality } from '../spine/nationality';
 import { Map } from '../spine/map';
 
 @Injectable()
 export class LoaderService {
   private _nationalityUrl = '/assets/lists/nationality.json';
   private _setUrl = '/assets/lists/set.json';
+  private _nationUrl = '/assets/lists/nationality.json';
   private _producerUrl = '/assets/lists/producer.json';
   private _mapUrl = '/assets/lists/maps.json';
   public currentVersion:string =  "0.0.0";
@@ -21,6 +23,13 @@ export class LoaderService {
   public loadSetData() : Observable<Set[]> {
     return this._http.get(this._setUrl)
         .map((response: Response) => <Set[]>response.json())
+        // .do(data => console.log("RopeData: " + JSON.stringify(data)))
+        .catch(error => this.handleError(error));
+  }
+
+  public loadNationData() : Observable<Nationality[]> {
+    return this._http.get(this._nationUrl)
+        .map((response: Response) => <Nationality[]>response.json())
         // .do(data => console.log("RopeData: " + JSON.stringify(data)))
         .catch(error => this.handleError(error));
   }

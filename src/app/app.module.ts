@@ -24,6 +24,7 @@ import { SetComponent } from './features/lookups/set/set.component';
 import { ProducerComponent } from './features/lookups/producer/producer.component';
 import { SourceComponent } from './features/admin/source/source.component';
 import { ModalDialogComponent } from './app-resources/common/modal-dialog/modal-dialog.component';
+import { NationalityComponent } from './features/lookups/nationality/nationality.component';
 
 
 
@@ -37,11 +38,13 @@ import { ModalDialogComponent } from './app-resources/common/modal-dialog/modal-
     ModalDialogComponent,
     DialogDirective,
     SetComponent,
-    ProducerComponent
+    ProducerComponent,
+    NationalityComponent
   ],
   entryComponents:[
     SetComponent,
-    ProducerComponent
+    ProducerComponent,
+    NationalityComponent
   ],
   imports: [
     BrowserModule,

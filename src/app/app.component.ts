@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs/rx';
 import { ModalDialogComponent } from './app-resources/common/modal-dialog/modal-dialog.component';
 import { SetComponent } from './features/lookups/set/set.component';
 import { ProducerComponent } from './features/lookups/producer/producer.component';
+import { NationalityComponent } from './features/lookups/nationality/nationality.component';
 
 import { Language, TranslationService, LocaleService } from 'angular-l10n';
 
@@ -75,6 +76,16 @@ export class AppComponent implements OnInit, OnDestroy {
         this.modal.modalMessage = true;
         this.modal.open(ProducerComponent);// pass in a component to populate the modal
       break;
+      case MESSAGE_TYPE.OPEN_NATIONALITY_DIALOG:
+        this.liveDialog = message.details;
+        this.modal.modalTitle = this.localization.translate("SELECT_NATIONALITY");
+        this.modal.passThroughData = message.details;// will contain a ref to the calling class.
+        this.modal.okButton = true;
+        this.modal.modalWidth = 500;
+        this.modal.cancelButton = false;
+        this.modal.modalMessage = true;
+        this.modal.open(NationalityComponent);// pass in a component to populate the modal
+    break;
     }
   }
 

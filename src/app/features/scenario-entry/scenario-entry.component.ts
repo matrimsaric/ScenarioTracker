@@ -3,6 +3,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 // class to hold scenario object
 import { Scenario, SCENARIO_TYPE } from '../../app-resources/spine/scenario';
 import { Map } from '../../app-resources/spine/map';
+import { Nationality } from '../../app-resources/spine/nationality';
 
 import { MessageInformation, MESSAGE_TYPE, MessagingService, MESSAGE_REQUESTOR } from '../../app-resources/app-services/messaging.service';
 import { Subscription } from 'rxjs/rx';
@@ -26,6 +27,8 @@ export class ScenarioEntryComponent implements OnInit, OnDestroy {
   private currentLookup: MESSAGE_TYPE = MESSAGE_TYPE.UNKNOWN;
   private setName: string = "";
   private producerName: string = "";
+  private nationName: string = "";
+  private nationId: string = "";
 
   // additional params
   private scenarioSize: string = "";
@@ -66,6 +69,11 @@ export class ScenarioEntryComponent implements OnInit, OnDestroy {
               case MESSAGE_TYPE.OPEN_PRODUCER_DIALOG:
                 this.masterScenario.producer = message.details.id;
                 this.producerName = message.details.name;
+                break;
+              case MESSAGE_TYPE.OPEN_NATIONALITY_DIALOG:
+                this.nationId = message.details.id;
+                this.nationName = message.details.name;
+                break;
           }
 
         }
@@ -83,6 +91,9 @@ export class ScenarioEntryComponent implements OnInit, OnDestroy {
         break;
         case "set":
           this.currentLookup = MESSAGE_TYPE.OPEN_SET_DIALOG;
+        break;
+        case "nationality":
+            this.currentLookup = MESSAGE_TYPE.OPEN_NATIONALITY_DIALOG;
         break;
       }
 
@@ -108,6 +119,16 @@ export class ScenarioEntryComponent implements OnInit, OnDestroy {
         
     }
 
+    private addNationality(newNation: string): void{
+        if(this.nationId != "" && this.nationName != ""){
+            var newNat: Nationality = new Nationality(this.nationId, this.nationName);
+
+            this.masterScenario.nationality.push(newNat);
+        }
+        
+
+    }
+
     private addNewMap(returnedMap: Map, mapId: string): void{
 
         if(returnedMap){
@@ -126,6 +147,15 @@ export class ScenarioEntryComponent implements OnInit, OnDestroy {
         for(var index: number = 0; index < this.masterScenario.maps.length; index++){
             if(this.masterScenario.maps[index].id == obsoleteMap.id){
                 this.masterScenario.maps.splice(index,1);
+            }
+        }
+    }
+
+    private removeNation(obsoleteNation: Nationality): void{
+        // loop to find
+        for(var index: number = 0; index < this.masterScenario.nationality.length; index++){
+            if(this.masterScenario.nationality[index].id == obsoleteNation.id){
+                this.masterScenario.nationality.splice(index,1);
             }
         }
     }

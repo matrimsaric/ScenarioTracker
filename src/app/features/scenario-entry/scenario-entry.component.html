@@ -63,9 +63,23 @@
             </md-list>
         </md-tab>
         <md-tab label="{{'ORBAT' | translate: lang}}">
-            <p>
-                Orbat Tab
-            </p>
+            <br/><br/>
+            <md-input-container>
+                <input mdInput #nationalities placeholder="{{'NATIONALITY' | translate: lang}}" style="width:300px" value="{{nationName}}" disabled="false">
+            </md-input-container>
+            <button md-mini-fab class="lookupBtn" (click)="addNationality(nationalities.value)" title="{{'ADD_NATIONALITY' | translate: lang}}">
+              <span class="glyphicon glyphicon-plus" id="look1"  aria-hidden="true"  ></span>
+            </button>
+            <button md-mini-fab class="lookupBtn" (click)="openLookup('nationality')" title="{{'VIEW_NATIONALITIES' | translate: lang}}">
+                <span class="glyphicon glyphicon-zoom-in" id="look1"  aria-hidden="true"  ></span>
+            </button><br/>
+            <md-list style="min-height: 200px">
+                <md-list-item *ngFor="let nation of masterScenario.nationality">{{ nation.id }} - {{nation.name}} 
+                    <button md-icon-button style="color:lightblue" id="look2" (click)="removeNation(nation)">
+                        <span class="glyphicon glyphicon-minus"   aria-hidden="true"  ></span>
+                     </button>
+                </md-list-item>
+            </md-list>
         </md-tab>
         <md-tab label="{{'ADDITIONAL' | translate: lang}}">
             <br/><br/>
@@ -132,9 +146,13 @@
             
         </md-tab>
         <md-tab label="{{'PERSONAL' | translate: lang}}">
-            <p>
-                Personal Tab
-            </p>
+            <br/><br/>
+            <md-input-container>
+                <input mdInput #tagFld placeholder="{{'SEARCH_TAGS' | translate: lang}}" style="width:150px"  disabled="false">
+            </md-input-container><br/>
+            <md-input-container class="full-width">
+                <textarea mdInput mdAutosizeMinRows minRows="12" #notesFld placeholder="{{'NOTES' | translate: lang}}" disabled="false"></textarea>
+            </md-input-container><br/>
         </md-tab>
     </md-tab-group>
   </div>

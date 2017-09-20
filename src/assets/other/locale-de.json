@@ -40,5 +40,14 @@
     "DESIGNER": "de#Designer",
     "SET_NAME": "de#Set Name",
     "YEAR_PRODUCED": "de#Year Produced",
-    "YEAR_SET": "de#Year Set"
+    "YEAR_SET": "de#Year Set",
+    "SEARCH_TAGS": "de#Scenario Search Tags",
+    "NOTES": "de#Notes",
+    "NATIONALITY": "de#Nationality",
+    "ADD_NATIONALITY": "de#Add Nationality",
+    "VIEW_NATIONALITIES": "de#View Nationalities",
+    "SELECT_NATIONALITY": "de#Select Nationality",
+    "MAP_ID": "de#Map Id",
+    "MAP": "de#Map",
+    "FILTER": "de#Filter"
 }

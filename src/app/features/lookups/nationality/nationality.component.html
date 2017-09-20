@@ -1,0 +1,14 @@
+<div *ngIf="showSearch" style="height: 400px; overflow: auto">
+    <md-input-container>
+        <input mdInput #filter placeholder="{{'FILTER' | translate: lang}}" style="width:200px"  disabled="false">
+    </md-input-container><br/><br/>
+    <md-list >
+        <md-list-item *ngFor="let nation of allNations">
+          <button md-button (click)="selectLine(nation)" style="width:400px">
+            <span>{{nation.id}}:</span>
+            <span class="demo-2"> {{nation.name}} </span>
+          </button>
+        </md-list-item>
+      </md-list>
+</div>
+<div *ngIf="showDetails"></div>
