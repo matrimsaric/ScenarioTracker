@@ -1,0 +1,20 @@
+<div style="margin-left: 40px; margin-right: 40px">
+<br/><br/>
+<md-input-container>
+    <input mdInput #mapInput placeholder="{{'ENTER_MAP' | translate: lang}}" style="width:300px" value="{{enteredMap}}" disabled="false">
+</md-input-container><br/>
+
+<md-input-container>
+    <input mdInput #setFldName placeholder="{{'SET_NAME' | translate: lang}}" style="width:300px" value="{{setName}}" disabled="false">
+</md-input-container>
+<button md-mini-fab class="lookupBtn" (click)="openLookup('set')" title="{{'VIEW_SETS' | translate: lang}}">
+  <span class="glyphicon glyphicon-zoom-in" id="look1"  aria-hidden="true"  ></span>
+</button>
+<button md-mini-fab class="lookupBtn" (click)="addAll(setFldName)" title="{{'ADD_ALL' | translate: lang}}">
+    <span class="glyphicon glyphicon-plus" id="look1"  aria-hidden="true"  ></span>
+  </button><br/><br/>
+
+  <div *ngFor="let map of maps" class="btn-group  btn-group-lg">
+    <app-map-button [currentMap]="map"></app-map-button>
+  </div>
+</div>

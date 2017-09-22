@@ -11,7 +11,8 @@ export enum MESSAGE_TYPE{
 
 export enum MESSAGE_REQUESTOR{
   UNKNOWN = 0,
-  SCENARIO_ENTRY = 1
+  SCENARIO_ENTRY = 1,
+  MAP_COLLECTIONS = 2
 }
 
 // class to contain enough generic info to allow the majority of components

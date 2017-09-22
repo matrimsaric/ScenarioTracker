@@ -11,6 +11,7 @@
                                 <li><a routerLink="/home" id="overrideback" routerLinkActive="active">{{ 'HOME' | translate: lang }}</a></li> 
                                 <li role="separator" class="divider" ></li>
                                  <li><a routerLink="/scenarioentry"  id="overrideback"  routerLinkActive="active">{{ 'SCENARIO_ENTRY' | translate: lang }}</a></li>
+                                 <li><a routerLink="/mapcollection"  id="overrideback"  routerLinkActive="active">{{ 'MAP_COLLECTION' | translate: lang }}</a></li>
                                  <li role="separator" class="divider" ></li>
     
                             </ul>
@@ -46,6 +47,15 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li (click)="saveRecord()"><a data-toggle="tooltip" id="overrideback" data-placement="left" title="{{ 'SAVE' | translate: lang }}" ><span class="glyphicon glyphicon-floppy-disk" style="color:#4da6ff" aria-hidden="false"></span></a></li>
                         </ul>
+
+                        <div *ngIf="isLoggedIn" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <!-- <label class="nav navbar-nav navbar-right">{{loggedInUser}}</label> -->
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a (click)="logout()">{{ 'LOGOUT' | translate: lang }} : {{loggedInUser}}</a></li>
+                            </ul>
+                        </div>
+
+                        
     
     
                 </div><!-- /.navbar-collapse -->

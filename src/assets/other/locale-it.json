@@ -50,5 +50,8 @@
     "SELECT_NATIONALITY": "it#Select Nationality",
     "MAP_ID": "it#Map Id",
     "MAP": "it#Map",
-    "FILTER": "it#Filter"
+    "FILTER": "it#Filter",
+    "ADD_ALL": "it#Add All",
+    "ENTER_MAP": "it#Enter Map",
+    "MAP_COLLECTION": "it#Map Collection"
 }

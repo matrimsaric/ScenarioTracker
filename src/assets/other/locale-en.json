@@ -46,6 +46,10 @@
     "SELECT_NATIONALITY": "Select Nationality",
     "MAP_ID": "Map Id",
     "MAP": "Map",
-    "FILTER": "Filter"
+    "FILTER": "Filter",
+    "ADD_ALL": "Add All",
+    "VIEW_SETS": "View Sets",
+    "ENTER_MAP": "Enter Map",
+    "MAP_COLLECTION": "Map Collection"
     
 }

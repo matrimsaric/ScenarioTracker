@@ -1,0 +1,2 @@
+<button id="mapBtn" class="btn btn-primary" [ngStyle]="{'background-color': buttonColor}" (click)="changeOwnership('clear')" *ngIf="owned">{{currentMap.id}}</button>
+<button id="mapBtn" class="btn btn-danger" [ngStyle]="{'background-color': buttonColor}" *ngIf="!owned" (click)="changeOwnership('add')">{{currentMap.id}}</button>

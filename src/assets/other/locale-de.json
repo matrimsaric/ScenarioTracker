@@ -49,5 +49,8 @@
     "SELECT_NATIONALITY": "de#Select Nationality",
     "MAP_ID": "de#Map Id",
     "MAP": "de#Map",
-    "FILTER": "de#Filter"
+    "FILTER": "de#Filter",
+    "ADD_ALL": "de#Add All",
+    "ENTER_MAP": "de#Enter Map",
+    "MAP_COLLECTION": "de#Map Collection"
 }

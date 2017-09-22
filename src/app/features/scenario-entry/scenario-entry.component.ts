@@ -5,6 +5,7 @@ import { Scenario, SCENARIO_TYPE } from '../../app-resources/spine/scenario';
 import { Map } from '../../app-resources/spine/map';
 import { Nationality } from '../../app-resources/spine/nationality';
 
+import { FirebaseService } from '../../app-resources/app-services/firebase.service';
 import { MessageInformation, MESSAGE_TYPE, MessagingService, MESSAGE_REQUESTOR } from '../../app-resources/app-services/messaging.service';
 import { Subscription } from 'rxjs/rx';
 
@@ -39,6 +40,7 @@ export class ScenarioEntryComponent implements OnInit, OnDestroy {
 
   constructor(  private _messenger: MessagingService,
                 private _translator: TranslationService,
+                private _firebase: FirebaseService,
                 private _loader: LoaderService) { 
 
  }
@@ -52,6 +54,10 @@ export class ScenarioEntryComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void{
 
+  }
+
+  private save(): void{
+    this._firebase.saveScenario(this.masterScenario);
   }
 
   
