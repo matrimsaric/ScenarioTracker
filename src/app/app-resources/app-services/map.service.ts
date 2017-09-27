@@ -1,27 +1,22 @@
 import { Injectable, OnInit } from '@angular/core';
 
 import { Map } from '../../app-resources/spine/map';
+import { FirebaseService } from './firebase.service';
 
 @Injectable()
 export class MapService implements OnInit {
 
-    private ownedMaps: Map[]= [];
+    public ownedMaps: string[] = [];
 
-  constructor() { }
+  constructor(private _firebase: FirebaseService) { }
 
   ngOnInit(): void{
-      this.loadOwnedMaps();
+
   }
 
-  public loadOwnedMaps(): void{
-      // TODO
-      var testMap: Map = new Map("5","Beyond Valor");
-      this.ownedMaps.push(testMap);
-      console.log('loading owned maps: IMPLEMENT');
-  }
 
   public isMapOwned(testMap: string): boolean{
-      var foundMap = this.ownedMaps.filter(mapRecord => mapRecord.id.toString().trim() == testMap);
+      var foundMap = this.ownedMaps.filter(mapRecord => mapRecord.toString().trim() == testMap);
 
       if(foundMap.length > 0){
           return true;
@@ -30,30 +25,44 @@ export class MapService implements OnInit {
       }
   }
 
-  public addNewOwnedMap(newOwnedMap: Map): void{
+  public addNewOwnedMap(newOwnedMap: string): void{
       // check not already added
-      var foundMap = this.ownedMaps.filter(mapRecord => mapRecord.id.toString().trim() == newOwnedMap.id);
+      var foundMap = this.ownedMaps.filter(mapRecord => mapRecord.toString().trim() == newOwnedMap);
       
-      if(!foundMap){
+      if(!foundMap || (foundMap && foundMap.length == 0)){
           this.ownedMaps.push(newOwnedMap);
+          this.saveMaps();
       }
 
-      // TODO SAVE
-      console.log('saving owned maps: IMPLEMENT');
+
+      
 
 
   }
 
-  public removeMapFromCollection(removeMap: Map): void{
+  public removeMapFromCollection(removeMap: string): void{
     for(var index:number = 0; index < this.ownedMaps.length; index++){
-        if(this.ownedMaps[index].id == removeMap.id){
+        if(this.ownedMaps[index] == removeMap){
             this.ownedMaps.splice(index,1);
         }
     }
 
-    // TODO SAVE
-    console.log('saving owned maps: IMPLEMENT');
+    this.saveMaps();
 
+  }
+
+  private saveMaps(): void{
+      // use aray to build a stirng
+      var saveThis: string = "";
+
+      for(var index: number = 0; index < this.ownedMaps.length; index++){
+          saveThis = saveThis + this.ownedMaps[index] + ",";
+      }
+
+      if(saveThis.length > 0){
+          saveThis = saveThis.substring(0, saveThis.length -1);
+          this._firebase.saveMap(saveThis);
+      }
   }
 
 }

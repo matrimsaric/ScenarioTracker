@@ -5,6 +5,8 @@ import { Map } from '../../app-resources/spine/map';
 // services
 import { LoaderService } from '../../app-resources/app-services/loader.service';
 import { MapService } from '../../app-resources/app-services/map.service';
+import { FirebaseService } from '../../app-resources/app-services/firebase.service';
+
 
 import { MessageInformation, MESSAGE_TYPE, MessagingService, MESSAGE_REQUESTOR } from '../../app-resources/app-services/messaging.service';
 import { Subscription } from 'rxjs/rx';
@@ -24,11 +26,19 @@ export class MapCollectionComponent implements OnInit {
 
   constructor( private _loader: LoaderService,
                 private _mapper: MapService,
-                private _messenger: MessagingService) { }
+                private _messenger: MessagingService,
+                private _firebase: FirebaseService) { }
 
   ngOnInit() {
-      this._mapper.loadOwnedMaps();
-      this.loadMaps();
+        this._firebase.af.app.database().ref('maps/1').once('value').then(data => {
+            var returnedMaps = data.val().saveMaps;
+
+            this._mapper.ownedMaps = returnedMaps.split(',');
+            
+
+            this.loadMaps();// only load all maps when we know owned maps status
+        });
+      
       this.broadcastSubscription = this._messenger.broadcastMessage.subscribe(message => this.onMessageReceived(message));
   }
 
@@ -41,6 +51,12 @@ export class MapCollectionComponent implements OnInit {
 
     
   }
+
+  
+
+  
+
+
 
   private openLookup(targetDialog: string): void{
     var msg: MessageInformation = { name: "dialogRequest", messageType:MESSAGE_TYPE.OPEN_SET_DIALOG, details: MESSAGE_REQUESTOR.MAP_COLLECTIONS , extra: [] };
@@ -68,11 +84,13 @@ export class MapCollectionComponent implements OnInit {
     private addAllSetMaps(): void{
         if(this.mapIds.length > 0){
             for(var index: number = 0; index < this.mapIds.length; index++){
-                var newMap: Map = new Map(this.mapIds[index], "");
-                this._mapper.addNewOwnedMap(newMap);
+                //var newMap: Map = new Map(this.mapIds[index], "");
+                this._mapper.addNewOwnedMap(this.mapIds[index]);
             }
         }
         
             
     }
+
+    
 }

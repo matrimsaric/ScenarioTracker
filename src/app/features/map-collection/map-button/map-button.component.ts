@@ -21,18 +21,18 @@ export class MapButtonComponent implements OnInit {
   }
 
   private checkMapOwnership(): void{
-    this.owned = this._loader.isMapOwned(this.currentMap.id.toString());
+    this.owned = this._loader.isMapOwned(this.currentMap.id);
 
     
   }
 
   private changeOwnership(adjustment: string): void{
       if(adjustment == "add"){
-            this._loader.addNewOwnedMap(this.currentMap);
+            this._loader.addNewOwnedMap(this.currentMap.id);
             this.owned = true;
       }
       else{
-        this._loader.removeMapFromCollection(this.currentMap);
+        this._loader.removeMapFromCollection(this.currentMap.id);
         this.owned = false;
       }
       

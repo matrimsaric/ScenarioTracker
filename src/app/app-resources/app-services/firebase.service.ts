@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
 
 import { Scenario } from '../spine/scenario';
+import { Map } from '../spine/map';
 
 @Injectable()
 export class FirebaseService {
@@ -37,11 +38,30 @@ export class FirebaseService {
   }
 
   saveScenario(saveScenario: Scenario): void{
-      let saveData: string = JSON.stringify(saveScenario);
+        let saveData: string = JSON.stringify(saveScenario);
 
-    this.af.app.database().ref('scenarios/' + saveScenario.id).set({
-        saveData
-    })
+        this.af.app.database().ref('scenarios/' + saveScenario.id).set({
+            saveData
+        })
+  }
+
+  saveMap(saveMaps: string): void{
+
+    
+        this.af.app.database().ref('maps/' + "1").set({
+            saveMaps
+        })
+  }
+
+  loadMaps(): Observable<string>{
+      var result: any;
+      // get all map data
+      this.af.app.database().ref('maps/1').once('value').then(data => {
+            return data.val().saveMaps;
+        });
+        return null;
+
+
   }
 }
 
